@@ -2,7 +2,7 @@
 //  MissionLabelView.swift
 //  Moonshot
 //
-//  Created by Ryan Prince on 9/15/22.
+//  Created by Ryan Prince on 10/5/22.
 //
 
 import SwiftUI
@@ -11,7 +11,6 @@ struct MissionLabelView: View {
     let mission: Mission
     
     var body: some View {
-//        Text("hello")
         VStack {
             Image(mission.image)
                 .resizable()
@@ -33,14 +32,17 @@ struct MissionLabelView: View {
             .background(.lightBackground)
         }
         .clipShape(RoundedRectangle(cornerRadius: 10))
-        .overlay(RoundedRectangle(cornerRadius: 10)
-            .stroke(.lightBackground)
+        .overlay(
+            RoundedRectangle(cornerRadius: 10)
+                .stroke(.lightBackground)
         )
     }
 }
 
 struct MissionLabelView_Previews: PreviewProvider {
+    static let missions: [Mission] = Bundle.main.decode("missions.json")
+    
     static var previews: some View {
-        MissionLabelView(mission: Mission.sampleData)
+        MissionLabelView(mission: missions[0])
     }
 }

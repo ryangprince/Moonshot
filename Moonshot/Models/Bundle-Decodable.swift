@@ -2,7 +2,7 @@
 //  Bundle-Decodable.swift
 //  Moonshot
 //
-//  Created by Ryan Prince on 9/15/22.
+//  Created by Ryan Prince on 10/4/22.
 //
 
 import Foundation
@@ -19,11 +19,11 @@ extension Bundle {
         
         let decoder = JSONDecoder()
         let formatter = DateFormatter()
-        formatter.dateFormat = "y-MM-DD"
+        formatter.dateFormat = "y-MM-dd"
         decoder.dateDecodingStrategy = .formatted(formatter)
         
         guard let loaded = try? decoder.decode(T.self, from: data) else {
-            fatalError("Failed to decode file \(file) from bundle.")
+            fatalError("Failed to decode \(file) from bundle.")
         }
         
         return loaded
